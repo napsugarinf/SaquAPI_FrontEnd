@@ -1,12 +1,13 @@
-.toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
+@import 'material-icons/iconfont/material-icons.scss';
+
+span{
+    display:flex;
     align-items: center;
-    background-color: #1976d2;
-    color: white;
+    color: #153462;
+    padding-left: 5%;
     font-weight: 600;
-  }
+}
+.api_name {
+    text-align: left;
+    color: #153462;
+}
