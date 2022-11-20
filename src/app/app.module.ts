@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { UploadComponent } from './userdashboard/upload/upload.component';
+import { TypedataComponent } from './userdashboard/typedata/typedata.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    UploadComponent,
+    TypedataComponent
   ],
   imports: [
     BrowserModule,
