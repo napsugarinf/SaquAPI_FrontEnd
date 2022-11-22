@@ -3,17 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { UploadComponent } from './userdashboard/upload/upload.component';
 import { TypedataComponent } from './userdashboard/typedata/typedata.component';
+import { AuthenticationService } from './_services/authentication.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    LoginComponent,
     HeaderComponent,
     FooterComponent,
     UserdashboardComponent,
@@ -24,7 +25,9 @@ import { TypedataComponent } from './userdashboard/typedata/typedata.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
