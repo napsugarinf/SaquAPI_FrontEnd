@@ -20,6 +20,6 @@ export class UserdashboardComponent implements OnInit {
     this.router.navigateByUrl('/userdashboard/typedata')
   }
   logoutClickHandler(): void{
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/login')
   }
 }
