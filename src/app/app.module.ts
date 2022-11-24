@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { UploadComponent } from './userdashboard/upload/upload.component';
 import { TypedataComponent } from './userdashboard/typedata/typedata.component';
+import { AdmindaskboardComponent } from './admindaskboard/admindaskboard.component';
 //import { AuthenticationService } from './_services/authentication.service';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TypedataComponent } from './userdashboard/typedata/typedata.component';
     FooterComponent,
     UserdashboardComponent,
     UploadComponent,
-    TypedataComponent
+    TypedataComponent,
+    AdmindaskboardComponent
   ],
   imports: [
     BrowserModule,
