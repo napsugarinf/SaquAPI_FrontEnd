@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -9,7 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { UploadComponent } from './userdashboard/upload/upload.component';
 import { TypedataComponent } from './userdashboard/typedata/typedata.component';
-import { AdmindaskboardComponent } from './admindaskboard/admindaskboard.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 //import { AuthenticationService } from './_services/authentication.service';
 
 @NgModule({
@@ -21,11 +24,13 @@ import { AdmindaskboardComponent } from './admindaskboard/admindaskboard.compone
     UserdashboardComponent,
     UploadComponent,
     TypedataComponent,
-    AdmindaskboardComponent
+    AdmindashboardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
    // AuthenticationService

@@ -3,10 +3,10 @@
 
   <div class="form_group">
     <label>User</label>
-    <input type="text" fromControlName="username">
+    <input type="number" [(ngModel)]="user.roomNumber">
 
     <label>Password</label>
-    <input type="password" fromControlName="username">
+    <input type="text" [(ngModel)]="user.password">
 
     <button id="login_btn" (click)="loginClickHandler()">
       <span>
@@ -15,5 +15,7 @@
       </span>
     </button>
   </div>
-  
+  <div>
+    
+  </div>
 </div>

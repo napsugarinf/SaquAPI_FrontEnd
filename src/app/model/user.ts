@@ -1,3 +1,4 @@
 export class User {
-    userName: string | undefined;
+    roomNumber: number | undefined
+    password: string | undefined
 }
