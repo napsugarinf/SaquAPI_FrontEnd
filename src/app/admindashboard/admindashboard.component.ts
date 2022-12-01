@@ -12,4 +12,8 @@ export class AdmindashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openDialog(): void {
+    
+  }
+
 }

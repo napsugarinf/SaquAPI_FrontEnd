@@ -13,6 +13,7 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 import { UploadComponent } from './userdashboard/upload/upload.component';
 import { TypedataComponent } from './userdashboard/typedata/typedata.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { RoomdataComponent } from './admindashboard/roomdata/roomdata.component';
 //import { AuthenticationService } from './_services/authentication.service';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     UploadComponent,
     TypedataComponent,
     AdmindashboardComponent,
+    RoomdataComponent,
   ],
   imports: [
     BrowserModule,

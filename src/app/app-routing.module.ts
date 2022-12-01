@@ -7,6 +7,7 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 import { TypedataComponent } from './userdashboard/typedata/typedata.component';
 import { UploadComponent } from './userdashboard/upload/upload.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { RoomdataComponent } from './admindashboard/roomdata/roomdata.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'userdashboard/typedata', component: TypedataComponent},
   { path: 'userdasboard/upload',component: UploadComponent },
   { path: 'admindashboard', component: AdmindashboardComponent},
+  { path: 'admindashboard/roomdata', component: RoomdataComponent},
   { path: '**', component: AppComponent}
 ];
 

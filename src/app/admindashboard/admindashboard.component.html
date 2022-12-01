@@ -7,6 +7,14 @@
             </button>
         </span>
     </div>
+    <div class="changePassword_div">
+        <button id="changePassword_btn" (click)="openDialog()" >
+            <span>
+              <p>Change password</p>
+              <i class="material-icons">login</i>
+            </span>
+        </button>
+    </div>
     <div class="table_box">
         <table>
             <thead>
@@ -17,7 +25,12 @@
                 </tr>
             </thead>
             <tbody>
-
+                <tr>
+                <!--<tr *ngFor="let person of people;"> -->
+                    <td>roomNumber</td>
+                    <td>date</td>
+                    <td>coldWaterMeterPos</td>    
+                </tr>
             </tbody>
         </table>
     </div>
