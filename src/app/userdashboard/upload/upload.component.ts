@@ -13,7 +13,7 @@ export class UploadComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  uploadHandler(): void{
+  photoUploadHandler(): void{
     this.router.navigateByUrl('/userdashboard')
   }
 }

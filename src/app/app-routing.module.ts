@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'userdashboard', component: UserdashboardComponent},
   { path: 'userdashboard/typedata', component: TypedataComponent},
-  { path: 'userdasboard/upload',component: UploadComponent },
+  { path: 'userdashboard/upload',component: UploadComponent },
   { path: 'changepassword', component: ChangepasswordComponent},
   { path: 'admindashboard', component: AdmindashboardComponent},
   { path: 'admindashboard/roomdata', component: RoomdataComponent},
