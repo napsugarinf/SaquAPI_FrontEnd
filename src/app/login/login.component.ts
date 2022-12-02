@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginClickHandler(){
-    //this.router.navigateByUrl('/userdashboard')
+    this.router.navigateByUrl('/userdashboard')
     this.userService.currentUser(this.user)
     .subscribe(data =>{
       console.log(data);
