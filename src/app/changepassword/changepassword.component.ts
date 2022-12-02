@@ -20,7 +20,10 @@ export class ChangepasswordComponent implements OnInit {
   }
 
   savePasswordClickHandler():void{
-
+    this.userService.savePassword(this.user)
+    .subscribe(data =>{
+      console.log(data);
+    })
   }
 
 }
