@@ -1,21 +1,23 @@
 <div class="home">
-    <div class="search_box">
-        <span>
-            <input type="text" placeholder="Search Here">
-            <button id="search_btn" >
-                <i class="material-icons">search</i>
-            </button>
-        </span>
-    </div>
-    <div class="changePassword_div">
-        <button id="changePassword_btn" (click)="changePasswordClickHandler()" >
+    <div class="grid-container">
+        <div class="search_box">
             <span>
-                <p>Change password</p>
-                <i class="material-icons">
-                    change_circle
-                </i>
+                <input type="text" placeholder="Search Here">
+                <button id="search_btn" >
+                    <i class="material-icons">search</i>
+                </button>
             </span>
-        </button>
+        </div>
+        <div class="changePassword_div">
+            <button id="changePassword_btn" (click)="changePasswordClickHandler()" >
+                <span>
+                    <p>Change password</p>
+                    <i class="material-icons">
+                        change_circle
+                    </i>
+                </span>
+            </button>
+        </div>
     </div>
     <div class="table_box">
         <table>
@@ -28,10 +30,10 @@
             </thead>
             <tbody>
                 <tr>
-                <!--<tr *ngFor="let person of people;"> -->
-                    <td>roomNumber</td>
-                    <td>date</td>
-                    <td>coldWaterMeterPos</td>    
+                <tr *ngFor="let room of rooms;">
+                    <td>{{room.roomNumber}}</td>
+                    <td>{{room.coldWater}}</td>
+                    <td>{{room.hotWater}}</td>    
                 </tr>
             </tbody>
         </table>

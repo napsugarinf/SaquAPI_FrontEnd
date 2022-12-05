@@ -11,9 +11,24 @@
     align-items: center;
     position: relative;
 }
-.search_box span{
+
+.changePassword_div{ 
+    grid-area: right;
+    margin-left: 3em;
+    margin-bottom: 5em;
+}
+
+.grid-container{
+    width:90em ;
+    height: 6em;
+    margin-left: 38em;
+    grid-template-areas:'right';
+    display:flex;
+    align-items: center;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+.search_box span{
     display:flex;
     align-items: center;
     width: 52em;

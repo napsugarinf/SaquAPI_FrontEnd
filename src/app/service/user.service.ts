@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import {User} from '../model/user';
 import { environment } from 'src/environments/environment';
+import { RoomData } from '../model/roomdata';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,11 @@ export class UserService {
     const body = JSON.stringify(user);
     console.log(body);
     return this.http.patch<any>(`${environment.apiUrl}/dashboard/user/change-password`, body,{'headers': headers})
+  }
+
+  getAllData(){
+    console.log('get all data');
+    return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-all-data`)
   }
 
 }
