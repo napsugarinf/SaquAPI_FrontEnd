@@ -28,6 +28,7 @@ export class AdmindashboardComponent implements OnInit {
     this.apiService.getAllData()
       .subscribe(data =>{
         console.log(data)
+        this.rooms=data;
       })
   }
 
