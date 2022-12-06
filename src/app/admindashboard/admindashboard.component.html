@@ -20,18 +20,20 @@
         </div>
     </div>
     <div class="table_box">
-        <table>
+        <table  class="style_table">
             <thead>
                 <tr>
                     <th>Room number</th>
                     <th>Date</th>
                     <th>Cold water</th>
+                    <th>Hot water</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                 <tr *ngFor="let room of rooms;">
                     <td>{{room.roomNumber}}</td>
+                    <td>-</td>
                     <td>{{room.coldWater}}</td>
                     <td>{{room.hotWater}}</td>    
                 </tr>

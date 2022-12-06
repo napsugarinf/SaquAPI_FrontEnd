@@ -1,11 +1,26 @@
 <div class="typedata">
     <div class="form_group">
-      <label><p>Please upload yout photo </p></label>
-      <input type="text" fromControlName="photoUpload">
+        <p>Choose file to upload</p>
+        <!-- <button id="typeDataSubmit_btn"> -->
+            <label>
+                <input class="form-control" type="file" (change)="onChange($event)">
+            </label>
+        <!-- </button> -->
         <button id="typeDataSubmit_btn" (click)="photoUploadHandler()">
-        <span>
-          <i class="material-icons"><p>Submit</p> </i>
-        </span>
-      </button>
+            <span>
+                <i class="material-icons">
+                    <p>Submit</p>
+                </i>
+            </span>
+        </button>
+
     </div>
-  </div>
+    <div class="container text-center jumbotron" *ngIf="shortLink">
+        <p> Visit Here</p>
+        <a href="{{shortLink}}">{{shortLink}}</a>
+    </div>
+    <!--Flag variable is used here-->
+    <div class="container" *ngIf="loading">
+        <p>Loading ...</p>
+    </div>
+</div>
