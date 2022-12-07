@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserdashboardService } from 'src/app/service/userdashboard.service'
+import { RoomData } from 'src/app/model/roomdata';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -8,41 +9,37 @@ import { UserdashboardService } from 'src/app/service/userdashboard.service'
 })
 export class UploadComponent implements OnInit {
 // Variable to store shortLink from api response
+
+roomData! : RoomData[];
+
 shortLink: string = "";
 loading: boolean = false; // Flag variable
 file: any = null; // Variable to store file
-  constructor( private userDashboardService: UserdashboardService) { }
+  constructor( private userDashboardService: UserdashboardService, 
+    private router: Router,
+    private apiService:UserdashboardService) { }
 
   ngOnInit(): void {
 
   }
-  // photoUploadHandler(): void{
-  //   this.router.navigateByUrl('/userdashboard')
-  // }
+
   // On file Select
   onChange(event: any) {
     this.file = event.target.files[0];
 }
 
-// OnClick of button Upload
-photoUploadHandler() {
-    this.loading = !this.loading;
-    console.log(this.file);
-    this.userDashboardService.uploadPhoto(this.file).subscribe(
-        (event: any) => {
-            if (typeof (event) === 'object') {
+// OnClick of button Submit
+ photoUploadHandler() {
 
-                // Short link via api response
-                this.shortLink = event.link;
+ }
 
-                this.loading = false; // Flag variable 
-            }
-        }
-    );
-}
-
-
-
-
+getRoomDataHandler() {
+        this.apiService.getRoomData()
+          .subscribe(data =>{
+            console.log(data)
+            this.roomData=data;
+          })
 
 }
+}
+
