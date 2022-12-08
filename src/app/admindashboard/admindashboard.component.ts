@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
+import {HttpEventType} from '@angular/common/http';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 import { RoomData } from '../model/roomdata';
-import { UserService } from '../service/user.service';
+import { AdmindashboardService } from '../service/admindashboard.service';
 
 @Component({
   selector: 'app-admindashboard',
@@ -11,10 +13,12 @@ import { UserService } from '../service/user.service';
 })
 export class AdmindashboardComponent implements OnInit {
   rooms?:RoomData[];
+  imageURL?:SafeUrl
 
   constructor(
     private router: Router,
-    private apiService:UserService) { }
+    private apiService:AdmindashboardService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.refreshRooms()
@@ -29,6 +33,23 @@ export class AdmindashboardComponent implements OnInit {
       .subscribe(data =>{
         console.log(data)
         this.rooms=data;
+      })
+  }
+
+  imageLinkClickHandler(){
+    this.apiService.getImage(4)
+      .subscribe(
+        data=>{
+        console.log(data)
+        switch(data.type){
+          case HttpEventType.Response:
+            if(data.body!==null){
+              this.imageURL = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
+            }
+            else{
+              alert('Error: The image cannot be displayed!');
+            }
+        }
       })
   }
 

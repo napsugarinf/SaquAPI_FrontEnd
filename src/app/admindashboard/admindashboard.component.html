@@ -27,6 +27,7 @@
                     <th>Date</th>
                     <th>Cold water</th>
                     <th>Hot water</th>
+                    <th>Image</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,9 +36,11 @@
                     <td>{{room.roomNumber}}</td>
                     <td>-</td>
                     <td>{{room.coldWater}}</td>
-                    <td>{{room.hotWater}}</td>    
+                    <td>{{room.hotWater}}</td>
+                    <td><a (click)="imageLinkClickHandler()">img</a></td>  
                 </tr>
             </tbody>
         </table>
+        <img [src]="imageURL" width="300px" height="300px">
     </div>
 </div>
