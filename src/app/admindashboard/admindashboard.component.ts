@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpEventType} from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
 
 import { RoomData } from '../model/roomdata';
 import { AdmindashboardService } from '../service/admindashboard.service';
@@ -13,7 +14,7 @@ import { AdmindashboardService } from '../service/admindashboard.service';
 })
 export class AdmindashboardComponent implements OnInit {
   rooms?:RoomData[];
-  imageURL?:SafeUrl
+  myimageURL?:SafeUrl
 
   constructor(
     private router: Router,
@@ -44,7 +45,14 @@ export class AdmindashboardComponent implements OnInit {
         switch(data.type){
           case HttpEventType.Response:
             if(data.body!==null){
-              this.imageURL = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
+              this.myimageURL = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
+              Swal.fire({
+                imageUrl: URL.createObjectURL(data.body) ,
+                imageWidth: 400,
+                imageHeight: 400,
+                //imageAlt: 'Custom image',
+              })
+              
             }
             else{
               alert('Error: The image cannot be displayed!');
