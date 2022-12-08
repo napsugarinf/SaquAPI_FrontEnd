@@ -1,6 +1,30 @@
 # SaquAPIFrontEnd
+The repository contains the FrontEnd part of the SauAPI Project. The project aims to help to record the watermeter position of each room in each month at SAPIENTIA EMTE Boarding School.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Later we updated it to Angular CLI: 14.2.9. 
+
+## Description of the project
+The application has got two features.
+User and Admin.
+User
+Each room has got a number, therefore the users are identified by the room number.
+Each room has got two watermeters: one for cold water and one for hot water.
+The positions of the watermeters have to be recorded each month in order to
+generate the bill for the respective room.
+The user authenticates itself with the room number and a given password.
+Then they are able to save their water meter positions and upload a picture as proof.
+There is a feature still under developement which would scan the uploaded picture and
+would read the positions of the watermeters and fill the input fields automatically.
+Admin
+The admin controls the whole process. He can list the users, list, check, modify and delete
+their data.
+
+Technologies used:
+Angular, Typescript for FrontEnd.
+
+The greatest challenge of the project is the detection of numbers of pictures taken from different angles
+and different light conditions.
+Other challenges: storage and movement of pictures between client and server.
 
 ## Development server
 
@@ -17,10 +41,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
