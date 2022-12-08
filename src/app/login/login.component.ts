@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service'
 })
 export class LoginComponent implements OnInit {
 
+
   user = new User();
   backendUser?:User
 
@@ -32,5 +33,5 @@ export class LoginComponent implements OnInit {
     })
     this.router.navigateByUrl('/userdashboard')
   }
-
+   
 }
