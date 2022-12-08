@@ -1,7 +1,7 @@
 # SaquAPIFrontEnd
 The repository contains the FrontEnd part of the SauAPI Project. The project aims to help to record the watermeter position of each room in each month at SAPIENTIA EMTE Boarding School.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Later we updated it to [Angular CLI] : 14.2.9. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Later we updated it to Angular CLI : 14.2.9. 
 
 ## Description of the project 
 The application has got two features.
