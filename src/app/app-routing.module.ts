@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'changepassword', component: ChangepasswordComponent},
   { path: 'admindashboard', component: AdmindashboardComponent},
   { path: 'admindashboard/roomdata', component: RoomdataComponent},
-  { path: '**', component: AppComponent}
+  { path: '**', component: LoginComponent}
 ];
 
 @NgModule({
