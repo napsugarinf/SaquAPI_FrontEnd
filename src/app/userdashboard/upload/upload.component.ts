@@ -43,10 +43,10 @@ roomDataPic= new RoomDataPic();
  photoUploadHandler():void {
     var reader = new FileReader();
     reader.readAsDataURL(this.selectedFile);
-    this.roomDataPic.key = '2000';
-    this.roomDataPic.roomNumber = 101;
-    this.roomDataPic.coldWater = 159753;
-    this.roomDataPic.hotWater = 147369;
+    this.roomDataPic.key = '-';
+    this.roomDataPic.roomNumber = 102;
+    //this.roomDataPic.coldWater = 159753;
+    //this.roomDataPic.hotWater = 147369;
     this.roomDataPic.fileInputStream = reader.result;
     this.userDashboardService.photoUpload(this.roomDataPic).subscribe(data => {
       console.log(data)

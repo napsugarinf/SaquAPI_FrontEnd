@@ -1,7 +1,11 @@
 <div class="typedata">
     <div class="form_group">
-        <p>Choose file to upload</p>
+        <label><p>Cold water</p> </label>
+        <input type="number" [(ngModel)]="roomDataPic.coldWater">
+        <label><p>Hot water</p> </label>
+        <input type="text" [(ngModel)]="roomDataPic.hotWater">
             <label>
+                <label><p>Choose a file to upload</p> </label>
                 <input class="form-control" type="file" (change)="onChange($event)">
             </label>
         <button id="typeDataSubmit_btn" (click)="photoUploadHandler()">
