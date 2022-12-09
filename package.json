@@ -19,8 +19,11 @@
     "@angular/platform-browser-dynamic": "^14.2.11",
     "@angular/router": "^14.2.11",
     "@material/button": "^14.0.0",
+    "loader-utils": "github:webpack/loader-utils",
     "material-icons": "^1.12.1",
     "rxjs": "~6.6.0",
+    "rxjs-compat": "^6.6.7",
+    "sweetalert2": "^11.4.8",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
