@@ -14,7 +14,11 @@ import { AdmindashboardService } from '../service/admindashboard.service';
 })
 export class AdmindashboardComponent implements OnInit {
   rooms?:RoomData[];
-  myimageURL?:SafeUrl
+  myimageURL?:SafeUrl;
+  filterValue?:String;
+  searchMessage = new String;
+  searchResult?:RoomData[];
+  selectRoom?:Number;
 
   constructor(
     private router: Router,
@@ -23,6 +27,7 @@ export class AdmindashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshRooms()
+    this.searchResult=[];
   }
 
   changePasswordClickHandler(): void {
@@ -34,11 +39,17 @@ export class AdmindashboardComponent implements OnInit {
       .subscribe(data =>{
         console.log(data)
         this.rooms=data;
-      })
+        this.searchResult=this.rooms;
+      });
   }
 
-  imageLinkClickHandler(){
-    this.apiService.getImage(4)
+  imageClickHandler(room:RoomData){
+    let key = "0"
+    if(room.key!==undefined){
+      key=room.key;
+    }
+    console.log(key);
+    this.apiService.getImage(key)
       .subscribe(
         data=>{
         console.log(data)
@@ -52,13 +63,32 @@ export class AdmindashboardComponent implements OnInit {
                 imageHeight: 400,
                 //imageAlt: 'Custom image',
               })
-              
             }
             else{
               alert('Error: The image cannot be displayed!');
             }
         }
       })
+  }
+
+  searchClickHandler() {
+    if(this.rooms!==undefined ){
+      if(Number(this.filterValue)>=100){
+        this.searchResult=this.rooms.filter((it)=>{
+          return it.roomNumber===Number(this.filterValue)
+        });
+        this.searchMessage="";
+      }
+      else{
+        this.searchMessage="Not found room";
+        this.searchResult=this.rooms
+      }
+      
+    }
+  }
+  selectRoomClickHandler(roomNumber:any){
+    this.selectRoom = roomNumber;
+    this.router.navigateByUrl('/admindashboard/roomdata');
   }
 
 }

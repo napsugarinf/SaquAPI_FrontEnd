@@ -27,7 +27,7 @@ export class AdmindashboardService {
     )
   }*/
 
-  getImage(key:number): Observable<HttpEvent<Blob>> {
+  getImage(key:String): Observable<HttpEvent<Blob>> {
     console.log('get image');
     return this.http.request(new HttpRequest(
       'GET',
