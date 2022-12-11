@@ -52,7 +52,8 @@ convertToBase64(file: File){
 
 readFile(file: File, subscriber: Subscriber<any>){
   const fileReader = new FileReader();
-  fileReader.readAsDataURL(file);
+  //fileReader.readAsDataURL(file);
+  fileReader.readAsArrayBuffer(file);
   fileReader.onload = () =>{
     subscriber.next(fileReader.result);
     subscriber.complete();
