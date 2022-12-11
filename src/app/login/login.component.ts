@@ -26,12 +26,20 @@ export class LoginComponent implements OnInit {
   }
 
   loginClickHandler(){
+
     this.userService.currentUser(this.user)
     .subscribe(data =>{
       console.log(data);
       this.backendUser=data;
     })
-    this.router.navigateByUrl('/userdashboard')
+    if (this.user.roomNumber==99 && this.user.password =='bencemester')
+    {
+      this.router.navigateByUrl('/admindashboard')
+    }
+    else{
+      this.router.navigateByUrl('/userdashboard')
+    }
+   
   }
    
 }

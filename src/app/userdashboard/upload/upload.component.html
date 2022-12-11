@@ -1,5 +1,7 @@
 <div class="typedata">
     <div class="form_group">
+        <label><p>Room number</p> </label>
+        <input type="number" [(ngModel)]="roomDataPic.roomNumber">
         <label><p>Cold water</p> </label>
         <input type="number" [(ngModel)]="roomDataPic.coldWater">
         <label><p>Hot water</p> </label>
@@ -44,7 +46,7 @@
                     <td >-</td>
                     <td >{{room.coldWater}}</td>
                     <td >{{room.hotWater}}</td>    
-                    <!-- <td >{{room.date}}</td>     -->
+                    <td >{{room.date}}</td>  
                 </tr>
         </table>
     </div>

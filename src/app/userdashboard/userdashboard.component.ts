@@ -16,9 +16,6 @@ export class UserdashboardComponent implements OnInit {
   uploadClickHandler(): void{
     this.router.navigateByUrl('/userdashboard/upload')
   }
-  loadDataClickHandler(): void{
-    this.router.navigateByUrl('/userdashboard/typedata')
-  }
   logoutClickHandler(): void{
     this.router.navigateByUrl('/login')
   }

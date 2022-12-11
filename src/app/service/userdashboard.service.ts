@@ -9,6 +9,7 @@ import 'rxjs/Rx';
 import { map } from 'rxjs/operators';
 import { LoginComponent } from '../login/login.component';
 import { RoomDataPic } from '../model/roomdatapic';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -19,32 +20,33 @@ export class UserdashboardService {
  // `${environment.apiUrl}/dashboard/user/change-password`
   constructor(private http: HttpClient) { }
 
-photoUpload(roomDataPic : RoomDataPic):Observable<any>{
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(roomDataPic);
-    console.log(body);
-    return this.http.post<any>(`${environment.apiUrl}/dashboard/user/save`, body,{'headers': headers})
-}
-// uploadFile(file: File, roomDataPic: RoomDataPic): Observable<HttpEvent<any>> {
 
-//   let formData = new FormData();
-//   formData.append('upload', file);
+  photoUpload(roomDataPic : RoomDataPic, file: File): Observable<HttpEvent<any>>{
 
-//   let params = new HttpParams();
+    console.log(roomDataPic.roomNumber);
+    console.log(roomDataPic.coldWater);
+    console.log(roomDataPic.hotWater);
+  
+    const formData = new FormData();
+    formData.append('roomNumber', '102');
+    formData.append('coldWater', '123456');
+    formData.append('hotWater','456789');
+    formData.append('fileInputStream', file);
+    return this.http.request(new HttpRequest(
+      'POST',
+      `${environment.apiUrl}/dashboard/user/save`,
+      formData,
+      {
+        reportProgress: true,
+        responseType: 'text'
+      }));
+  }
 
-//   const options = {
-//     params: params,
-//     reportProgress: true,
-//   };
-
-//   const req = new HttpRequest('POST', url, formData, options);
-//   return this.http.request(req);
-// }
 
 public convertImage(file: Blob): Observable<HttpEvent<any>> {
   const formData = new FormData();
   formData.append('file', file);
-
+  console.log(formData);
   return this.http.request(new HttpRequest(
     'POST',
     `http://127.0.0.1:5000/imageConvertToText`,
@@ -52,7 +54,9 @@ public convertImage(file: Blob): Observable<HttpEvent<any>> {
     {
       reportProgress: true,
       responseType: 'text'
+      
     }));
+    
 }
 
 
@@ -61,5 +65,5 @@ getRoomData(){
 
   return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-room-data?roomNumber=102`)
 }
-//${LoginComponent.getUser.roomNumber}
+
 }
