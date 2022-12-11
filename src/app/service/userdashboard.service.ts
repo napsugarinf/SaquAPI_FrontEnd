@@ -23,12 +23,12 @@ export class UserdashboardService {
 
   photoUpload(roomDataPic : RoomDataPic, file: File): Observable<HttpEvent<any>>{
 
-    console.log(roomDataPic.roomNumber);
-    console.log(roomDataPic.coldWater);
-    console.log(roomDataPic.hotWater);
+    // console.log(roomDataPic.roomNumber);
+    // console.log(roomDataPic.coldWater);
+    // console.log(roomDataPic.hotWater);
   
     const formData = new FormData();
-    formData.append('roomNumber', '102');
+    formData.append('roomNumber', roomDataPic.roomNumber);
     formData.append('coldWater', '123456');
     formData.append('hotWater','456789');
     formData.append('fileInputStream', file);
@@ -60,10 +60,10 @@ public convertImage(file: Blob): Observable<HttpEvent<any>> {
 }
 
 
-getRoomData(){
+getRoomData(roomDataPic : RoomDataPic){
   console.log('get roomData data');
 
-  return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-room-data?roomNumber=102`)
+  return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-room-data?roomNumber=${roomDataPic.roomNumber}`)
 }
 
 }

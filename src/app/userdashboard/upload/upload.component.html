@@ -1,14 +1,14 @@
 <div class="typedata">
     <div class="form_group">
         <label><p>Room number</p> </label>
-        <input type="number" [(ngModel)]="roomDataPic.roomNumber">
+        <input type="text" class = "inputStyle" [(ngModel)]="roomDataPic.roomNumber">
         <label><p>Cold water</p> </label>
-        <input type="number" [(ngModel)]="roomDataPic.coldWater">
+        <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.coldWater">
         <label><p>Hot water</p> </label>
-        <input type="text" [(ngModel)]="roomDataPic.hotWater">
+        <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.hotWater">
             <label>
-                <label><p>Choose a file to upload</p> </label>
-                <input class="form-control" type="file" (change)="onChange($event)">
+                <label><p><strong> Choose a file to upload </strong></p> </label>
+                <input class="inputStyle" type="file" (change)="onChange($event)">
             </label>
             <!-- <div *ngIf = "myImage"><img [src]="myImage" width = "500px" height = "500"></div> -->
         <button id="typeDataSubmit_btn" (click)="photoUploadHandler()">
@@ -33,7 +33,6 @@
             <thead>
                 <tr>
                     <th >Room number</th>
-                    <th >Key</th>
                     <th >Cold water</th>
                     <th >Hot water</th>
                     <th >Date</th>
@@ -43,7 +42,6 @@
                 <tr>
                 <tr *ngFor="let room of roomData;">
                     <td >{{room.roomNumber}}</td>
-                    <td >-</td>
                     <td >{{room.coldWater}}</td>
                     <td >{{room.hotWater}}</td>    
                     <td >{{room.date}}</td>  

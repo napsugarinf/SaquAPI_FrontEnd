@@ -47,6 +47,7 @@ onChange(event: any){
     else{
       alert('Error: The image cannot be displayed!');
     }
+    //image processing should come here
 }
 
 
@@ -58,7 +59,7 @@ photoUploadHandler(){
  }
  
 getRoomDataHandler() {
-        this.userDashboardService.getRoomData()
+        this.userDashboardService.getRoomData(this.roomDataPic)
           .subscribe(data =>{
             console.log(data)
             this.roomData=data;

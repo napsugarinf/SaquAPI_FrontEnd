@@ -64,7 +64,14 @@ h2{
     max-height: $button_height;
     font-size: medium;
 }
-.roomData_table {
+.roomData_table, th, td {
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
+    border: 1px solid black;
 }
+.inputStyle{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    color: #153462;
+}
+
