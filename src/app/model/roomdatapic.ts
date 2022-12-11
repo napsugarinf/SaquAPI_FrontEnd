@@ -3,7 +3,7 @@ export class RoomDataPic {
     roomNumber: number | undefined
     coldWater: number | undefined
     hotWater: number | undefined
-    fileInputStream: string | ArrayBuffer | null;
+    fileInputStream:  ArrayBuffer | null;
 
     constructor(key: string = '', roomNumber: number = 0, coldWater: number = 0, hotWater: number = 0, fileInputStream = null) {
         this.key = key;

@@ -25,6 +25,23 @@ photoUpload(roomDataPic : RoomDataPic):Observable<any>{
     console.log(body);
     return this.http.post<any>(`${environment.apiUrl}/dashboard/user/save`, body,{'headers': headers})
 }
+// uploadFile(file: File, roomDataPic: RoomDataPic): Observable<HttpEvent<any>> {
+
+//   let formData = new FormData();
+//   formData.append('upload', file);
+
+//   let params = new HttpParams();
+
+//   const options = {
+//     params: params,
+//     reportProgress: true,
+//   };
+
+//   const req = new HttpRequest('POST', url, formData, options);
+//   return this.http.request(req);
+// }
+
+
 
 
 getRoomData(){
