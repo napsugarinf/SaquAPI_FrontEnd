@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import {User} from '../model/user';
 import { UserService } from './user.service';
@@ -41,7 +41,19 @@ photoUpload(roomDataPic : RoomDataPic):Observable<any>{
 //   return this.http.request(req);
 // }
 
+public convertImage(file: Blob): Observable<HttpEvent<any>> {
+  const formData = new FormData();
+  formData.append('file', file);
 
+  return this.http.request(new HttpRequest(
+    'POST',
+    `http://127.0.0.1:5000/imageConvertToText`,
+    formData,
+    {
+      reportProgress: true,
+      responseType: 'text'
+    }));
+}
 
 
 getRoomData(){

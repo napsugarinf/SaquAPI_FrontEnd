@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpEventType} from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
@@ -14,11 +14,11 @@ import { AdmindashboardService } from '../service/admindashboard.service';
 })
 export class AdmindashboardComponent implements OnInit {
   rooms?:RoomData[];
-  myimageURL?:SafeUrl;
   filterValue?:String;
   searchMessage = new String;
   searchResult?:RoomData[];
   selectRoom?:Number;
+  @Output() onSelected = new EventEmitter<any>();
 
   constructor(
     private router: Router,
@@ -56,7 +56,6 @@ export class AdmindashboardComponent implements OnInit {
         switch(data.type){
           case HttpEventType.Response:
             if(data.body!==null){
-              this.myimageURL = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
               Swal.fire({
                 imageUrl: URL.createObjectURL(data.body) ,
                 imageWidth: 400,
@@ -87,8 +86,14 @@ export class AdmindashboardComponent implements OnInit {
     }
   }
   selectRoomClickHandler(roomNumber:any){
-    this.selectRoom = roomNumber;
+    this.apiService.setSelectRoomNumber(roomNumber);
     this.router.navigateByUrl('/admindashboard/roomdata');
+  }
+
+  getTextPythonClickHandler(){
+    this.apiService.getTextpython().subscribe(data =>{
+      console.log(data.type);
+    });
   }
 
 }

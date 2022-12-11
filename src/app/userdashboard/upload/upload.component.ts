@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {HttpEventType} from '@angular/common/http';
 import { UserdashboardService } from 'src/app/service/userdashboard.service'
 import { RoomData } from 'src/app/model/roomdata';
 import { RoomDataPic } from 'src/app/model/roomdatapic';
@@ -29,7 +30,7 @@ roomDataPic= new RoomDataPic();
   }
 
   // On file Select
-  onChange = ($event: any) => {
+  onChange1 = ($event: any) => {
     //this.selectedFile = <File>event.target.files[0];
     const target = $event.target as HTMLInputElement;
     const file : File = (target.files as FileList)[0];
@@ -38,6 +39,20 @@ roomDataPic= new RoomDataPic();
 
 
 }
+
+onChange(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.userDashboardService.convertImage(this.selectedFile).subscribe(data =>{
+        console.log(data);
+        switch(data.type){
+            case HttpEventType.Response:
+              if(data.body!==null){
+                console.log(data.body);
+              }
+            }      
+    })
+}
+
 convertToBase64(file: File){
   const observable = new Observable((subscriber: Subscriber<any>) =>{
     this.readFile(file, subscriber)
