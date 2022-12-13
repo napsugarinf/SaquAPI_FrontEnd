@@ -20,26 +20,11 @@ export class UserdashboardService {
  // `${environment.apiUrl}/dashboard/user/change-password`
   constructor(private http: HttpClient) { }
 
-
-  photoUpload(roomDataPic : RoomDataPic, file: File): Observable<HttpEvent<any>>{
-
-    // console.log(roomDataPic.roomNumber);
-    // console.log(roomDataPic.coldWater);
-    // console.log(roomDataPic.hotWater);
-  
-    const formData = new FormData();
-    formData.append('roomNumber', roomDataPic.roomNumber);
-    formData.append('coldWater', '123456');
-    formData.append('hotWater','456789');
-    formData.append('fileInputStream', file);
-    return this.http.request(new HttpRequest(
-      'POST',
-      `${environment.apiUrl}/dashboard/user/save`,
-      formData,
-      {
-        reportProgress: true,
-        responseType: 'text'
-      }));
+  photoUpload(roomdatapic: RoomDataPic) {
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(roomdatapic);
+    console.log(body);
+    return this.http.post<any>(`${environment.apiUrl}/userdashboard/save`, body,{'headers': headers})
   }
 
 

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {User} from '../model/user';
 import { environment } from 'src/environments/environment';
 import { RoomData } from '../model/roomdata';
+import { LoginMessage } from '../model/loginmessage';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 <div class="typedata">
     <div class="form_group">
         <label><p>Room number</p> </label>
-        <input type="text" class = "inputStyle" [(ngModel)]="roomDataPic.roomNumber">
+        <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.roomNumber">
         <label><p>Cold water</p> </label>
         <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.coldWater">
         <label><p>Hot water</p> </label>
@@ -12,6 +12,9 @@
             </label>
             <!-- <div *ngIf = "myImage"><img [src]="myImage" width = "500px" height = "500"></div> -->
         <button id="typeDataSubmit_btn" (click)="photoUploadHandler()">
+            <!-- <div *ngIf = "myImage">
+                
+            </div> -->
         <!-- <button id="typeDataSubmit_btn" (click)="getRoomDataHandler()">  -->
             <span>
                 <i class="material-icons">

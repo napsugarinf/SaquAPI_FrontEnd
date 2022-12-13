@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user'
 import { UserService } from 'src/app/service/user.service'
+import { LoginMessage } from '../model/loginmessage';
 //import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
 
 
   user = new User();
+  loginMessage = new LoginMessage();
   backendUser?:User
 
   constructor(
