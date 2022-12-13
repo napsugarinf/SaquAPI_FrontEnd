@@ -2,7 +2,8 @@
     <div class="grid-container">
         <div class="search_box">
             <span>
-                <input type="text"  placeholder="Search Here" [(ngModel)]="filterValue">
+                <p style="margin-left: 2em;">Room Number</p>
+                <input type="text"  placeholder="Search Here" [(ngModel)]="filterRoomNumber">
                 <button id="search_btn" (click)="searchClickHandler()" >
                     <i class="material-icons">search</i>
                 </button>
@@ -20,7 +21,6 @@
         </div>
     </div>
     <div class="table_box">
-        <button (click)="getTextPythonClickHandler()">Python</button>
         <p>{{searchMessage}}</p>
         <table  class="style_table">
             <thead>
@@ -34,11 +34,11 @@
             </thead>
             <tbody>
                 <tr>
-                <tr *ngFor="let room of searchResult;">
-                    <td class="td_color" (click)="selectRoomClickHandler(room.roomNumber)">{{room.roomNumber}}</td>
-                    <td>-</td>
-                    <td>{{room.coldWater}}</td>
-                    <td>{{room.hotWater}}</td>
+                <tr *ngFor="let room of searchResult;" class="tr_color">
+                    <td (click)="selectRoomClickHandler(room)">{{room.roomNumber}}</td>
+                    <td (click)="selectRoomClickHandler(room)">{{room.date}}</td>
+                    <td (click)="selectRoomClickHandler(room)">{{room.coldWater}}</td>
+                    <td (click)="selectRoomClickHandler(room)">{{room.hotWater}}</td>
                     <td class="td_color" (click)="imageClickHandler(room)">image</td>  
                 </tr>
             </tbody>

@@ -38,8 +38,8 @@
 
 .search_box input{
     height: 2em;
-    width: 50em;
-    margin-left: 5em;
+    width: 45em;
+    margin-left: 2px;
     background-color:#F6F6C9;
     border-color: #F6F6C9;
 }
@@ -92,7 +92,7 @@
 .table_box{
     background-color: #4FA095;
     display: flex;
-    height: 400px;
+    height: 440px;
     width: 800px;
     flex-direction: column;
     grid-template-areas:'right';
@@ -115,13 +115,9 @@
 .style_table td {
     padding: 8px 2px;
 }
-.style_table tbody tr:nth-of-type(even) {
-    background-color: #BAD1C2;
-}
-
-.style_table tbody tr:last-of-type {
-    border-bottom: 2px solid #BAD1C2;
+.tr_color:not(.expanded):hover{
+    background: #F6F6C9;
 }
 .td_color:not(.expanded):hover{
-    color: #F6F6C9;
+    color: #4FA095;
 }

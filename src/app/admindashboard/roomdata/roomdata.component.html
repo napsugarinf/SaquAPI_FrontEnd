@@ -1,25 +1,30 @@
 <div class="home">
-    <div class="search_box">
-        <span>
-            <input type="date" placeholder="Search Here">
-            <button id="search_btn" >
-                <i class="material-icons">search</i>
-            </button>
-        </span>
+    <div class="form_group" >
+        <div class="rNumber_box">
+            <label>Room number:</label>
+            <h3>{{roomNumber}}</h3> 
+        </div>
+        <div class="date_box">
+            <label>Upload date:</label>
+            <p>{{date}}</p>
+        </div>
+        <div class="water_box">
+            <label>Cold water</label>
+            <input type="text" [(ngModel)]="updateColdWater">
+        </div>
+        <div class="water_box">
+            <label>Hot water</label>
+            <input type="text"  [(ngModel)]="updateHotWater">
+        </div>
+    
+        <button id="saveUpdate_btn" (click)="saveUpdateClickHandler()">
+          <span>
+            <p>Save Update</p>
+            <i class="material-icons">done</i>
+          </span>
+        </button>
     </div>
-    <div class="table_box">
-        <table>
-            <thead>
-                <tr>
-                    <th>Room number</th>
-                    <th>Date</th>
-                    <th>Cold water</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+    <div class="img_box">
+        <img [src]="imgURL">
     </div>
 </div>

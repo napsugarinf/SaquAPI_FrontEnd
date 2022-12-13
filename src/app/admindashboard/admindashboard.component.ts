@@ -14,7 +14,9 @@ import { AdmindashboardService } from '../service/admindashboard.service';
 })
 export class AdmindashboardComponent implements OnInit {
   rooms?:RoomData[];
-  filterValue?:String;
+  filterRoomNumber?:String;
+  filterYear?: String;
+  filterMonth?:String;
   searchMessage = new String;
   searchResult?:RoomData[];
   selectRoom?:Number;
@@ -72,9 +74,9 @@ export class AdmindashboardComponent implements OnInit {
 
   searchClickHandler() {
     if(this.rooms!==undefined ){
-      if(Number(this.filterValue)>=100){
+      if(Number(this.filterRoomNumber)>=100){
         this.searchResult=this.rooms.filter((it)=>{
-          return it.roomNumber===Number(this.filterValue)
+          return it.roomNumber===Number(this.filterRoomNumber);
         });
         this.searchMessage="";
       }
@@ -85,15 +87,9 @@ export class AdmindashboardComponent implements OnInit {
       
     }
   }
-  selectRoomClickHandler(roomNumber:any){
-    this.apiService.setSelectRoomNumber(roomNumber);
+  selectRoomClickHandler(room:RoomData){
+    this.apiService.setSelectRoom(room);
     this.router.navigateByUrl('/admindashboard/roomdata');
-  }
-
-  getTextPythonClickHandler(){
-    this.apiService.getTextpython().subscribe(data =>{
-      console.log(data.type);
-    });
   }
 
 }

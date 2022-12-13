@@ -6,12 +6,14 @@ import { map } from 'rxjs/operators';
 import {User} from '../model/user';
 import { environment } from 'src/environments/environment';
 import { RoomData } from '../model/roomdata';
+import { UpdateData } from '../model/updatedata';
+import { Message } from '../model/message';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdmindashboardService {
-    selectRoomNumber?:Number;
+    selectRoom?:RoomData;
 
   constructor(private http: HttpClient) {
    }
@@ -33,26 +35,33 @@ export class AdmindashboardService {
       }));
   }
 
-  setSelectRoomNumber(value:Number){
-    this.selectRoomNumber=value;
+  setSelectRoom(value:RoomData){
+    this.selectRoom=value;
   }
 
-  getSelectRoomNumber(){
-    return this.selectRoomNumber;
-  }
-
-  getTextpython():Observable<HttpEvent<any>>{
-    console.log('get text python');
-    //return this.http.get<Text>(`http://127.0.0.1:5000/hello`);
-    return this.http.request( new HttpRequest(
-        'GET',
-        `http://127.0.0.1:5000/hello`,
-        null,
-        {
-            responseType: 'text',
-            reportProgress: true
+  getSelectRoom(){
+    if(this.selectRoom===undefined){
+        this.selectRoom={
+            key: "",
+            roomNumber: 0,
+            date: new Date("2022-08-01"),
+            coldWater: 0,
+            hotWater: 0
         }
-    ))
+        return this.selectRoom;
+    }
+    else{
+        return this.selectRoom;
+    }
+    
+  }
+
+  updateData(updateData:UpdateData):Observable<Message>{
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(updateData);
+    console.log("update data")
+    console.log(body);
+    return this.http.patch<Message>(`${environment.apiUrl}/dashboard/admin/update-data`, body,{'headers': headers})
   }
 
 }
