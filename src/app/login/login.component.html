@@ -2,10 +2,12 @@
   <h2>Welcome to SaquAPI!</h2>
 
   <div class="form_group">
-    <label>Room number</label>
+    <label><p>Room number</p>
+      </label>
     <input type="number" [(ngModel)]="user.roomNumber">
 
-    <label>Password</label>
+    <label><p>Password</p>
+      </label>
     <input type="password" [(ngModel)]="user.password">
 
       <button id="login_btn" (click)="loginUser()">

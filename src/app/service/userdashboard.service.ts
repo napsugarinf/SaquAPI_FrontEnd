@@ -6,7 +6,7 @@ import { UserService } from './user.service';
 import { environment } from 'src/environments/environment';
 import { RoomData } from '../model/roomdata';
 import 'rxjs/Rx';
-import { map } from 'rxjs/operators';
+
 import { LoginComponent } from '../login/login.component';
 import { RoomDataPic } from '../model/roomdatapic';
 import Swal from 'sweetalert2';
@@ -48,7 +48,7 @@ public convertImage(file: Blob): Observable<HttpEvent<any>> {
 getRoomData(roomDataPic : RoomDataPic){
   console.log('get roomData data');
 
-  return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-room-data?roomNumber=${roomDataPic.roomNumber}`)
+  return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-room-data?roomNumber=${LoginComponent.roomNr}`)
 }
 
 }

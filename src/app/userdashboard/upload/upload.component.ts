@@ -5,10 +5,9 @@ import { UserdashboardService } from 'src/app/service/userdashboard.service'
 import { RoomData } from 'src/app/model/roomdata';
 import { RoomDataPic } from 'src/app/model/roomdatapic';
 import { Observable, ReplaySubject, Subscriber } from 'rxjs';
-import { SequenceEqualSubscriber } from 'rxjs/internal/operators/sequenceEqual';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { fromPromise } from 'rxjs/internal-compatibility';
 import Swal from 'sweetalert2';
+import { UserService } from 'src/app/service/user.service';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-upload',
@@ -28,7 +27,7 @@ base64code!: any;
  
 selectedFile! :File;
 
-constructor( private userDashboardService: UserdashboardService, private router: Router, private http: HttpClient) { }
+constructor( private userDashboardService: UserdashboardService, private userService: UserService, private router: Router, private http: HttpClient) { }
 
 ngOnInit(): void {
 
@@ -38,6 +37,7 @@ ngOnInit(): void {
 onChange(event: any){
     this.selectedFile = event.target.files[0]; 
     console.log(this.selectedFile);
+   
     this.convertToBase64(this.selectedFile);
     if(this.selectedFile!==null){
       Swal.fire({
@@ -80,13 +80,13 @@ readFile(file: File, subscriber: Subscriber<any>) {
 }
   
 photoUploadHandler(){
-  // console.log(this.roomDataPic.roomNumber)
-  // console.log(this.roomDataPic.coldWater)
-  // console.log(this.roomDataPic.hotWater)
-  // console.log(this.base64code)
+  this.roomDataPic.roomNumber = LoginComponent.roomNr!
+  console.log(this.roomDataPic.roomNumber)
+  console.log(this.roomDataPic.coldWater)
+  console.log(this.roomDataPic.hotWater)
+  console.log(this.base64code)
   this.roomDataPic.base64StringImage = this.base64code
    console.log(this.roomDataPic.base64StringImage)
-  //  this.imageURL = 'data:image/jpeg;base64,' + this.base64code;
     this.userDashboardService.photoUpload(this.roomDataPic).subscribe(data => {
      console.log(data)
     })
@@ -100,5 +100,7 @@ getRoomDataHandler() {
           })
 
 }
+
+
 
 }

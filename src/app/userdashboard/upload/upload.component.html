@@ -1,56 +1,64 @@
-<div class="typedata">
-    <div class="form_group">
-        <label><p>Room number</p> </label>
-        <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.roomNumber">
-        <label><p>Cold water</p> </label>
-        <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.coldWater">
-        <label><p>Hot water</p> </label>
-        <input type="number" class = "inputStyle" [(ngModel)]="roomDataPic.hotWater">
-            <label>
-                <label><p><strong> Choose a file to upload </strong></p> </label>
-                <input class="inputStyle" type="file" (change)="onChange($event)">
-            </label>
-            <!-- <div *ngIf = "myImage"><img [src]="myImage" width = "500px" height = "500"></div> -->
-        <button id="typeDataSubmit_btn" (click)="photoUploadHandler()">
-           
-            <!-- <div *ngIf = "myImage">
-                
-            </div> -->
-        <!-- <button id="typeDataSubmit_btn" (click)="getRoomDataHandler()">  -->
-            <span>
-                <i class="material-icons">
-                    <p>Submit</p>
-                </i>
-            </span>
-        </button>
-         <button id="typeDataSubmit_btn" (click)="getRoomDataHandler()">
-                <span>
-                    <i class="material-icons">
-                        <p>Get room data</p>
-                    </i>
-            </span>
-        </button> 
-      
+<div class="upload">
+    <div class="container">
+        <div class="form_group">
+            <div>
+                <label>
+                    <p><strong>Cold water </strong> </p>
+                </label>
+                <input type="number" class="inputStyle" [(ngModel)]="roomDataPic.coldWater">
+            </div>
+            <div>
+                <label>
+                    <p><strong> Hot water</strong> </p>
+                </label>
+                <input type="number" class="inputStyle" [(ngModel)]="roomDataPic.hotWater">
+            </div>
+            <div>
+                <label>
+                    <label>
+                        <p><strong> Choose a file to upload </strong></p>
+                    </label>
+                    <input class="inputStyle" type="file" (change)="onChange($event)">
+                </label>
+            </div>
+            <div>
+                <button id="typeDataSubmit_btn" (click)="photoUploadHandler()">
+                    <span>
+                        <i class="material-icons">
+                            <p>Submit</p>
+                        </i>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="form_table">
+            <table mat-table class="roomData_table">
+                <thead>
+                    <tr>
+                        <th>Room number</th>
+                        <th>Cold water</th>
+                        <th>Hot water</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <tr *ngFor="let room of roomData;">
+                        <td>{{room.roomNumber}}</td>
+                        <td>{{room.coldWater}}</td>
+                        <td>{{room.hotWater}}</td>
+                        <td>{{room.date}}</td>
+                    </tr>
+            </table>
+            <div>
+                <button id="typeDataSubmit_btn" (click)="getRoomDataHandler()">
+                    <span>
+                        <i class="material-icons">
+                            <p>Get room data</p>
+                        </i>
+                    </span>
+                </button>
+            </div>
+        </div>
     </div>
-    <div>
-        <table mat-table class="roomData_table">
-            <thead>
-                <tr>
-                    <th >Room number</th>
-                    <th >Cold water</th>
-                    <th >Hot water</th>
-                    <th >Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <tr *ngFor="let room of roomData;">
-                    <td >{{room.roomNumber}}</td>
-                    <td >{{room.coldWater}}</td>
-                    <td >{{room.hotWater}}</td>    
-                    <td >{{room.date}}</td>  
-                </tr>
-        </table>
-    </div>
-    
 </div>

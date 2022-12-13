@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user'
 import { UserService } from 'src/app/service/user.service'
 import Swal from 'sweetalert2';
-import { LoginMessage } from '../model/loginmessage';
 
 
 @Component({
@@ -14,10 +13,10 @@ import { LoginMessage } from '../model/loginmessage';
 export class LoginComponent implements OnInit {
 
 
-  user = new User();
+   user = new User();
+  public static roomNr? : number = 0;
   backendUser?:User
 
-  loginMessage = new LoginMessage();
   constructor(
     private  userService:UserService,
     private route: ActivatedRoute,
@@ -29,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
    loginUser(){
-    //this.user.password = 
+  
     this.userService.loginUser(this.user).subscribe(
       res => {
         const responseMessage = JSON.stringify(res)
@@ -37,6 +36,7 @@ export class LoginComponent implements OnInit {
         const errorMessage = JSON.stringify({message: 'FAILED'})
         console.log(JSON.stringify(res));
         if (responseMessage == succesMessage) {
+          LoginComponent.roomNr = this.user.roomNumber
           if (this.user.roomNumber == 99)
            {
              this.router.navigateByUrl('/admindashboard')
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
            }
         if (responseMessage == errorMessage) {
           Swal.fire(
-            'Iinvalid roomnumber or password'
+            'Invalid roomnumber or password'
         )     
         this.user.roomNumber =0;
         this.user.password = '';
@@ -60,4 +60,5 @@ export class LoginComponent implements OnInit {
       }
     )
    }
+  
 }

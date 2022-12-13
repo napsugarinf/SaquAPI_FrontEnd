@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import {User} from '../model/user';
 import { environment } from 'src/environments/environment';
 import { RoomData } from '../model/roomdata';
-import { LoginMessage } from '../model/loginmessage';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +38,5 @@ export class UserService {
     console.log('get all data');
     return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-all-data`)
   }
-
+ 
 }
