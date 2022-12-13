@@ -14,12 +14,18 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  currentUser(user:User): Observable<any>{
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(user);
-    console.log(body);
-    return this.http.post<any>(`${environment.apiUrl}/login`, body,{'headers': headers})
+  // currentUser(user:User): Observable<any>{
+  //   const headers = { 'content-type': 'application/json'}
+  //   const body=JSON.stringify(user);
+  //   console.log(body);
+  //   return this.http.post<any>(`${environment.apiUrl}/login`, body,{'headers': headers})
   
+  // }
+
+  loginUser(user: User): Observable<any>{
+    const headers = { 'content-type': 'application/json'}
+     const body=JSON.stringify(user);
+    return this.http.post<any>(`${environment.apiUrl}/login`, body,{'headers': headers})
   }
 
   savePassword(user:User):Observable<any>{

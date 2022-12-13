@@ -23,6 +23,7 @@ roomData! : RoomData[];
 roomDataPic = new RoomDataPic();
 //selectedFile!: File; // Variable to store file
 myImage!: Observable<any>;
+imageURL: any;
 base64code!: any;
  
 selectedFile! :File;
@@ -83,9 +84,9 @@ photoUploadHandler(){
   // console.log(this.roomDataPic.coldWater)
   // console.log(this.roomDataPic.hotWater)
   // console.log(this.base64code)
-  // this.roomDataPic.base64StringImage = this.base64code
-  // console.log(this.roomDataPic)
-
+  this.roomDataPic.base64StringImage = this.base64code
+   console.log(this.roomDataPic.base64StringImage)
+  //  this.imageURL = 'data:image/jpeg;base64,' + this.base64code;
     this.userDashboardService.photoUpload(this.roomDataPic).subscribe(data => {
      console.log(data)
     })

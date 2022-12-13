@@ -23,8 +23,8 @@ export class UserdashboardService {
   photoUpload(roomdatapic: RoomDataPic) {
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(roomdatapic);
-    console.log(body);
-    return this.http.post<any>(`${environment.apiUrl}/userdashboard/save`, body,{'headers': headers})
+    //console.log(body);
+    return this.http.post<any>(`${environment.apiUrl}/dashboard/user/save`, body,{'headers': headers})
   }
 
 
