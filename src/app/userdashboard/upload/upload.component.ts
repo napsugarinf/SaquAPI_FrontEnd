@@ -24,7 +24,7 @@ roomDataPic = new RoomDataPic();
 myImage!: Observable<any>;
 imageURL: any;
 base64code!: any;
- 
+public roomNNN = LoginComponent.roomNr!
 selectedFile! :File;
 
 constructor( private userDashboardService: UserdashboardService, private userService: UserService, private router: Router, private http: HttpClient) { }
@@ -81,8 +81,8 @@ readFile(file: File, subscriber: Subscriber<any>) {
   
 photoUploadHandler(){
   this.roomDataPic.roomNumber = LoginComponent.roomNr!
-  console.log(this.roomDataPic.roomNumber)
-  console.log(this.roomDataPic.coldWater)
+  //console.log(this.roomDataPic.roomNumber)
+  //console.log(this.roomDataPic.coldWater)
   console.log(this.roomDataPic.hotWater)
   console.log(this.base64code)
   this.roomDataPic.base64StringImage = this.base64code

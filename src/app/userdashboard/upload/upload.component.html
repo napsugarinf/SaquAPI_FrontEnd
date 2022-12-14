@@ -1,9 +1,14 @@
 <div class="upload">
-    <div class="container">
+    <!-- <div class="container"> -->
+       <div>
+        <h1>
+            ROOMNUMBER {{roomNNN}}
+        </h1>
+       </div>
         <div class="form_group">
             <div>
                 <label>
-                    <p><strong>Cold water </strong> </p>
+                    <p><strong> Cold water </strong> </p>
                 </label>
                 <input type="number" class="inputStyle" [(ngModel)]="roomDataPic.coldWater">
             </div>
@@ -14,6 +19,7 @@
                 <input type="number" class="inputStyle" [(ngModel)]="roomDataPic.hotWater">
             </div>
             <div>
+            
                 <label>
                     <label>
                         <p><strong> Choose a file to upload </strong></p>
@@ -31,6 +37,7 @@
                 </button>
             </div>
         </div>
+        <div class="space_between"> </div>
         <div class="form_table">
             <table mat-table class="roomData_table">
                 <thead>
@@ -60,5 +67,5 @@
                 </button>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>

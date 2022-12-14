@@ -10,8 +10,10 @@ import { User } from '../model/user';
   styleUrls: ['./userdashboard.component.scss']
 })
 export class UserdashboardComponent implements OnInit {
+public roomNumber = LoginComponent.roomNr!
+  constructor(private router: Router) {
 
-  constructor(private router: Router) {}
+  }
 
   ngOnInit(): void {
   }
