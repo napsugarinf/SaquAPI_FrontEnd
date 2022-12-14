@@ -4,7 +4,7 @@ The repository contains the FrontEnd part of the SauAPI Project. The project aim
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Later we updated it to Angular CLI : 14.2.9. 
 
 ## Description of the project 
-The application has got two features.
+The application has got modes.
 User and Admin.
 User
 Each room has got a number, therefore the users are identified by the room number.
