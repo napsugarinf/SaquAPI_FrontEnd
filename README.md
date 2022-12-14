@@ -32,7 +32,7 @@ their data.
  - Node.js v18.12.1
  - Angular CLI 14.2.9 
 
-
+## Challanges
 The greatest challenge of the project is the detection of numbers of pictures taken from different angles
 and different light conditions.
 Other challenges: storage and movement of pictures between client and server.
