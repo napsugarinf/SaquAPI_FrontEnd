@@ -1,12 +1,13 @@
 # SaquAPIFrontEnd
 The repository contains the FrontEnd part of the SauAPI Project. The project aims to help to record the watermeter position of each room in each month at SAPIENTIA EMTE Boarding School.
+This project's frontend was created with the help of Angular ( https://angular.io ), a platform for building mobile and desktop web applications. As the programming language, the code is written in Typescript ( https://www.typescriptlang.org/ ).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Later we updated it to Angular CLI : 14.2.9. 
 
 ## Description of the project 
-The application has got modes.
+The application has got two modes.
 User and Admin.
-User
+#User
 Each room has got a number, therefore the users are identified by the room number.
 Each room has got two watermeters: one for cold water and one for hot water.
 The positions of the watermeters have to be recorded each month in order to
@@ -15,7 +16,7 @@ The user authenticates itself with the room number and a given password.
 Then they are able to save their water meter positions and upload a picture as proof.
 There is a feature still under developement which would scan the uploaded picture and
 would read the positions of the watermeters and fill the input fields automatically.
-Admin
+#Admin
 The admin controls the whole process. He can list the users, list, check, modify and delete
 their data.
 
