@@ -12,6 +12,7 @@ import { UploadComponent } from './userdashboard/upload/upload.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { RoomdataComponent } from './admindashboard/roomdata/roomdata.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ErrorComponent } from './error/error.component';
 //import { AuthenticationService } from './_services/authentication.service';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     AdmindashboardComponent,
     RoomdataComponent,
     ChangepasswordComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

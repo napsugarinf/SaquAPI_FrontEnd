@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { RoomData } from 'src/app/model/roomdata';
 import { AdmindashboardService } from '../../service/admindashboard.service';
 import { UpdateData } from 'src/app/model/updatedata';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-roomdata',
@@ -32,20 +33,24 @@ export class RoomdataComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.selectRoom===undefined || this.selectRoom.roomNumber===undefined || this.selectRoom.date===undefined || this.selectRoom.key===undefined){
-        this.roomNumber=0
-        this.date="-";
+    if(LoginComponent.roomNr!=99){
+      //this.router.navigateByUrl('/error');
     }
     else{
-      this.roomNumber=this.selectRoom.roomNumber;
-      this.date=String(this.selectRoom.date);
-      this.updateColdWater=String(this.selectRoom.coldWater);
-      this.updateHotWater=String(this.selectRoom.hotWater);
-      this.displayImage(this.selectRoom.key)
+      if(this.selectRoom===undefined || this.selectRoom.roomNumber===undefined || this.selectRoom.date===undefined || this.selectRoom.key===undefined){
+        this.roomNumber=0
+        this.date="-";
+      }
+      else{
+        this.roomNumber=this.selectRoom.roomNumber;
+        this.date=String(this.selectRoom.date);
+        this.updateColdWater=String(this.selectRoom.coldWater);
+        this.updateHotWater=String(this.selectRoom.hotWater);
+        this.displayImage(this.selectRoom.key)
+      }
     }
-    //this.selectRoom=this.apiService.getSelectRoom();
-    console.log(this.selectRoom?.coldWater);
   }
+
   displayImage(key:String){
     this.apiService.getImage(key)
       .subscribe(
@@ -77,6 +82,10 @@ export class RoomdataComponent implements OnInit {
         }
       )
     }
+  }
+
+  backClickHandler(): void {
+    this.router.navigateByUrl('/admindashboard');
   }
 
 }

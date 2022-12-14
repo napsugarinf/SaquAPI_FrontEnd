@@ -10,6 +10,12 @@
             </span>
         </div>
         <div class="changePassword_div">
+            <button id="changePassword_btn" (click)="logoutClickHandler()">
+                <span>
+                    <p style="margin-left: 20%;">Logout</p>
+                    <i class="material-icons">logout</i>
+                </span>
+              </button>
             <button id="changePassword_btn" (click)="changePasswordClickHandler()" >
                 <span>
                     <p>Change password</p>
@@ -39,7 +45,7 @@
                     <td (click)="selectRoomClickHandler(room)">{{room.date}}</td>
                     <td (click)="selectRoomClickHandler(room)">{{room.coldWater}}</td>
                     <td (click)="selectRoomClickHandler(room)">{{room.hotWater}}</td>
-                    <td class="td_color" (click)="imageClickHandler(room)">image</td>  
+                    <td class="td_color" (click)="imageClickHandler(room)">[image]</td>  
                 </tr>
             </tbody>
         </table>

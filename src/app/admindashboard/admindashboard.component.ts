@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 import { RoomData } from '../model/roomdata';
 import { AdmindashboardService } from '../service/admindashboard.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-admindashboard',
@@ -13,10 +14,9 @@ import { AdmindashboardService } from '../service/admindashboard.service';
   styleUrls: ['./admindashboard.component.scss']
 })
 export class AdmindashboardComponent implements OnInit {
+  public roomNumber = LoginComponent.roomNr!
   rooms?:RoomData[];
   filterRoomNumber?:String;
-  filterYear?: String;
-  filterMonth?:String;
   searchMessage = new String;
   searchResult?:RoomData[];
   selectRoom?:Number;
@@ -28,12 +28,18 @@ export class AdmindashboardComponent implements OnInit {
     private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.refreshRooms()
-    this.searchResult=[];
+    if(LoginComponent.roomNr!=99){
+      this.router.navigateByUrl('/error');
+    }
+    else{
+      this.refreshRooms()
+      this.searchResult=[];
+    }
+    
   }
 
   changePasswordClickHandler(): void {
-    this.router.navigateByUrl('/changepassword')
+    this.router.navigateByUrl('/changepassword');
   }
 
   refreshRooms(){
@@ -60,9 +66,8 @@ export class AdmindashboardComponent implements OnInit {
             if(data.body!==null){
               Swal.fire({
                 imageUrl: URL.createObjectURL(data.body) ,
-                imageWidth: 400,
-                imageHeight: 400,
-                //imageAlt: 'Custom image',
+                imageWidth: "100%",
+                imageHeight: "100%",
               })
             }
             else{
@@ -74,7 +79,7 @@ export class AdmindashboardComponent implements OnInit {
 
   searchClickHandler() {
     if(this.rooms!==undefined ){
-      if(Number(this.filterRoomNumber)>=100){
+      if(Number(this.filterRoomNumber)>=100 && Number(this.filterRoomNumber)<200){
         this.searchResult=this.rooms.filter((it)=>{
           return it.roomNumber===Number(this.filterRoomNumber);
         });
@@ -82,7 +87,9 @@ export class AdmindashboardComponent implements OnInit {
       }
       else{
         this.searchMessage="Not found room";
-        this.searchResult=this.rooms
+        this.searchResult=this.rooms.filter((it)=>{
+          return it.roomNumber===Number(this.filterRoomNumber);
+        });
       }
       
     }
@@ -90,6 +97,10 @@ export class AdmindashboardComponent implements OnInit {
   selectRoomClickHandler(room:RoomData){
     this.apiService.setSelectRoom(room);
     this.router.navigateByUrl('/admindashboard/roomdata');
+  }
+  logoutClickHandler(): void{
+    LoginComponent.roomNr =0;
+    this.router.navigateByUrl('/login')
   }
 
 }
