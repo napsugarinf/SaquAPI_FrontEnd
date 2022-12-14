@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Description of the project 
 The application has got two modes.
 User and Admin.
-#User
+# User
 Each room has got a number, therefore the users are identified by the room number.
 Each room has got two watermeters: one for cold water and one for hot water.
 The positions of the watermeters have to be recorded each month in order to
@@ -16,12 +16,10 @@ The user authenticates itself with the room number and a given password.
 Then they are able to save their water meter positions and upload a picture as proof.
 There is a feature still under developement which would scan the uploaded picture and
 would read the positions of the watermeters and fill the input fields automatically.
-#Admin
+# Admin
 The admin controls the whole process. He can list the users, list, check, modify and delete
 their data.
 
-Technologies used:
-Angular, Typescript for FrontEnd.
 
 The greatest challenge of the project is the detection of numbers of pictures taken from different angles
 and different light conditions.
