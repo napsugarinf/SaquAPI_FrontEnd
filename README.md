@@ -1,6 +1,6 @@
 # SaquAPIFrontEnd
 The repository contains the FrontEnd part of the SauAPI Project. The project aims to help to record the watermeter position of each room in each month at SAPIENTIA EMTE Boarding School.
-This project's frontend was created with the help of Angular ( https://angular.io ), a platform for building mobile and desktop web applications. As the programming language, the code is written in Typescript ( https://www.typescriptlang.org/ ).
+This project's frontend was created with the help of Angular ( https://angular.io ), a platform for building mobile and desktop web applications, npm, a package manager for the JavaScript programming language maintained by npm, the default package manager for the JavaScript runtime environment Node.js. As the programming language, the code is written in Typescript ( https://www.typescriptlang.org/ ).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Later we updated it to Angular CLI : 14.2.9. 
 
@@ -21,6 +21,18 @@ The admin controls the whole process. He can list the users, list, check, modify
 their data.
 
 
+## Technologies used
+ - Visual Studio Code
+ - Node.js
+ - npm
+
+
+## Prerequisites
+ - Visual Studio Code
+ - Node.js v18.12.1
+ - Angular CLI 14.2.9 
+
+
 The greatest challenge of the project is the detection of numbers of pictures taken from different angles
 and different light conditions.
 Other challenges: storage and movement of pictures between client and server.
@@ -37,10 +49,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For more information related to the used technologies please visit the websites given above.
