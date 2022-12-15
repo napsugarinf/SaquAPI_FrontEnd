@@ -46,7 +46,14 @@ onChange(event: any){
         imageHeight:  "100%",
         //imageAlt: 'Custom image',
       })     
-
+      this.userDashboardService.convertImage(this.selectedFile).subscribe(data =>{
+        switch(data.type){
+            case HttpEventType.Response:
+              if(data.body!==null){
+                console.log(data.body);
+              }
+            }      
+    })
     }
     else{
       alert('Error: The image cannot be displayed!');
