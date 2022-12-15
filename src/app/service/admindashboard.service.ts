@@ -19,12 +19,12 @@ export class AdmindashboardService {
    }
 
   getAllData(){
-    console.log('get all data');
+    //console.log('get all data');
     return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-all-data`)
   }
 
   getImage(key:String): Observable<HttpEvent<Blob>> {
-    console.log('get image');
+    //console.log('get image');
     return this.http.request(new HttpRequest(
       'GET',
       `${environment.apiUrl}/dashboard/admin/get-image?key=${key}`,
@@ -59,8 +59,8 @@ export class AdmindashboardService {
   updateData(updateData:UpdateData):Observable<Message>{
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(updateData);
-    console.log("update data")
-    console.log(body);
+    //console.log("update data")
+    //console.log(body);
     return this.http.patch<Message>(`${environment.apiUrl}/dashboard/admin/update-data`, body,{'headers': headers})
   }
 
