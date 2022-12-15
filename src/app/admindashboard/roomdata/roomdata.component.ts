@@ -34,7 +34,7 @@ export class RoomdataComponent implements OnInit {
 
   ngOnInit(): void {
     if(LoginComponent.roomNr!=99){
-      //this.router.navigateByUrl('/error');
+      this.router.navigateByUrl('/error');
     }
     else{
       if(this.selectRoom===undefined || this.selectRoom.roomNumber===undefined || this.selectRoom.date===undefined || this.selectRoom.key===undefined){
@@ -55,7 +55,7 @@ export class RoomdataComponent implements OnInit {
     this.apiService.getImage(key)
       .subscribe(
         data=>{
-        console.log(data)
+        //console.log(data)
         switch(data.type){
           case HttpEventType.Response:
             if(data.body!==null){
@@ -73,10 +73,10 @@ export class RoomdataComponent implements OnInit {
       this.updateData.coldWater=Number(this.updateColdWater);
       this.updateData.hotWater=Number(this.updateHotWater);
       this.updateData.key=this.selectRoom.key;
-      console.log(this.updateData);
+      //console.log(this.updateData);
       this.apiService.updateData(this.updateData).subscribe(
         data =>{
-          console.log(data);
+          //console.log(data);
           Swal.fire(
             'The data update is '+ data.message)
         }

@@ -14,7 +14,6 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./admindashboard.component.scss']
 })
 export class AdmindashboardComponent implements OnInit {
-  public roomNumber = LoginComponent.roomNr!
   rooms?:RoomData[];
   filterRoomNumber?:String;
   searchMessage = new String;
@@ -45,7 +44,7 @@ export class AdmindashboardComponent implements OnInit {
   refreshRooms(){
     this.apiService.getAllData()
       .subscribe(data =>{
-        console.log(data)
+        //console.log(data)
         this.rooms=data;
         this.searchResult=this.rooms;
       });
@@ -56,11 +55,11 @@ export class AdmindashboardComponent implements OnInit {
     if(room.key!==undefined){
       key=room.key;
     }
-    console.log(key);
+    //console.log(key);
     this.apiService.getImage(key)
       .subscribe(
         data=>{
-        console.log(data)
+        //console.log(data)
         switch(data.type){
           case HttpEventType.Response:
             if(data.body!==null){

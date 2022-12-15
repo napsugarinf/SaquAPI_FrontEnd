@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {User} from '../model/user';
 import { environment } from 'src/environments/environment';
 import { RoomData } from '../model/roomdata';
+import { Message } from '../model/message';
 
 @Injectable({
   providedIn: 'root'
@@ -27,16 +28,11 @@ export class UserService {
     return this.http.post<any>(`${environment.apiUrl}/login`, body,{'headers': headers})
   }
 
-  savePassword(user:User):Observable<any>{
+  savePassword(user:User):Observable<Message>{
     const headers ={ 'content-type': 'application/json'}
     const body = JSON.stringify(user);
-    console.log(body);
-    return this.http.patch<any>(`${environment.apiUrl}/dashboard/user/change-password`, body,{'headers': headers})
-  }
-
-  getAllData(){
-    console.log('get all data');
-    return this.http.get<RoomData[]>(`${environment.apiUrl}/dashboard/admin/get-all-data`)
+    //console.log(body);
+    return this.http.patch<Message>(`${environment.apiUrl}/dashboard/user/change-password`, body,{'headers': headers})
   }
  
 }
