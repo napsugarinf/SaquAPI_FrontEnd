@@ -30,14 +30,22 @@ selectedFile! :File;
 constructor( private userDashboardService: UserdashboardService, private userService: UserService, private router: Router, private http: HttpClient) { }
 
 ngOnInit(): void {
-
   }
 
   // On file Select
-onChange(event: any){
+onChange(event: any): void{
     this.selectedFile = event.target.files[0]; 
     console.log(this.selectedFile);
-   
+    this.userDashboardService.convertImage(this.selectedFile).subscribe(data =>{
+      console.log(data);
+      switch(data.type){
+          case HttpEventType.Response:
+            if(data.body!==null){
+              console.log(data.body);
+              this.roomDataPic.coldWater=Number(data.body)
+            }
+          }      
+  })
     this.convertToBase64(this.selectedFile);
     if(this.selectedFile!==null){
       Swal.fire({
